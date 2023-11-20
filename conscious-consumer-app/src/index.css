@@ -1,11 +1,12 @@
 html, body {
   width: 400px; 
   height: 400px;
-  background-image: linear-gradient(to bottom right, #CCFFDD, #BCFAA0); 
   /* margin: 0; /* Remove default margin for a cleaner look */
   /* padding: 20px; /* Add padding if needed */
   /* border-radius: 10px; Add border-radius to round the corners */ 
 }
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

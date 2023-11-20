@@ -7,8 +7,8 @@
     "default_title": "conscious consumer",
     "default_popup": "index.html", 
     "default_icon": {
-      "16": "logo192.png", 
-      "128": "logo192.png"
+      "16": "logo-clothing.png", 
+      "128": "logo-clothing.png"
     }
   }
 }

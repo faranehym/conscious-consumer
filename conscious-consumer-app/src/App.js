@@ -4,7 +4,17 @@ import PersonList from './components/PersonList.js';
 import OpenPieChart from "./components/OpenPieChart.js";
 import CircularButton from "./components/CircularButton.js";
 import { ChakraProvider } from '@chakra-ui/react'
-import { CircularProgress, CircularProgressLabel, Button } from '@chakra-ui/react'
+import { CircularProgress, CircularProgressLabel, Button, Text } from '@chakra-ui/react'
+import ReactDOM from 'react-dom';
+import Popup from "./components/Popup.js";
+import ApiRequestButton from "./components/Request.js";
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <Popup />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
 
 const data = [
   {
@@ -18,47 +28,58 @@ function App() {
 
   const [lists, setLists] = useState(data); 
 
-  const openTabs = (url) => {
-    for (const link of url) {
-      window.open(link, "_blank"); 
-    }
-  }
-
-  const chartData = {
-    labels: ['Label 1', 'Label 2', 'Label 3'],
-    datasets: [
-      {
-        data: [30, 40, 30],
-        backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)'],
-      },
-    ],
-  };
-
   return (
     <ChakraProvider>
-    <div className="App">
-    <body>
-      <PersonList/> 
-        <h3>conscious consumer</h3>
-        <div className="lists">
-          {lists && lists.map((item) => {
-            return(
-              <button className="button" onClick={() => (openTabs(item.url))}>{item.name}</button>
-            )
-          })}
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Toto:wght@600&family=Old+Standard+TT:wght@700&family=Trocchi&family=Work+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0')
+      </style>
+      <div className="homepage-body">
+        <div className="home-heading">
+          <Text className="heading" as='b' text-align='center'>Conscious </Text>
+          <span class="material-symbols-outlined">
+            energy_savings_leaf
+          </span>
+          <Text className="heading" as='b' text-align='center'> Consumer</Text>
         </div>
-        <div >
-          <Button colorScheme='blue'>Button</Button>
-          <CircularProgress value={30} size='120px' />
-          <CircularButton/>
+        <div className="home-subheading">
+          <Text fontSize='md' as='i' className="subheading" text-align='center'>making informed purchases</Text>
         </div>
-        <div>
-          <OpenPieChart />
-        </div>
-      </body>
-    </div>
+      </div>
+      <div>
+          <OpenPieChart/>
+      </div>
+      <div>
+        <ApiRequestButton/>
+      </div>
     </ChakraProvider>
   );
+
+  // return (
+  //   <ChakraProvider>
+  //   <div className="App">
+  //   <body>
+  //     <PersonList/> 
+  //       <h3>conscious consumer</h3>
+  //       <div className="lists">
+  //         {lists && lists.map((item) => {
+  //           return(
+  //             <button className="button" onClick={() => (openTabs(item.url))}>{item.name}</button>
+  //           )
+  //         })}
+  //       </div>
+  //       <div >
+  //         <Button colorScheme='blue'>Button</Button>
+  //         <CircularProgress value={30} size='120px' />
+  //         <CircularButton/>
+  //       </div>
+  //       <div>
+  //         <OpenPieChart />
+  //       </div>
+  //     </body>
+  //   </div>
+  //   </ChakraProvider>
+  // );
 }
 
 export default App;

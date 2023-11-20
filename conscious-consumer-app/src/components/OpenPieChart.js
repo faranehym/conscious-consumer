@@ -8,19 +8,20 @@ const data = {
   datasets: [
     {
       data: [30, 40, 30],
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-      hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+      backgroundColor: ['#84A98C', '#52796F', '#354F52'],
+      hoverBackgroundColor: ['#CAD2C5', '#CAD2C5', '#CAD2C5'],
     },
   ],
 };
 
 const options = {
-  cutout: '80%', // Adjust the cutout percentage to control the size of the hole in the middle
+  cutout: '50%', // Adjust the cutout percentage to control the size of the hole in the middle
   maintainAspectRatio: false,
   responsive: true,
   legend: {
     display: true,
-    position: 'bottom',
+    position: 'top',
+    align: 'center'
   },
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { ChakraProvider, Box, Button } from '@chakra-ui/react';
 
 class PersonList extends React.Component {
   constructor(props) {
@@ -20,14 +21,17 @@ class PersonList extends React.Component {
       const apiKey = '3D8YE4XMJG4N52G25D1W16FT3BY6'; // Replace 'API_KEY' with your actual API key
 
       const requestData = {
-        emission_factor: {
-          activity_id: 'electricity-supply_grid-source_residual_mix',
-          data_version: '^3',
+        
+          emission_factor: {
+            activity_id: 'consumer_goods-type_personal_accessories_childrens_accessories',
+            data_version: '^0',
+          },
+          parameters: {
+            money: 500,
+            money_unit: 'usd',
         },
-        parameters: {
-          energy: 4200,
-          energy_unit: 'kWh',
-        },
+        
+        
       };
 
       const response = await axios.post(apiUrl, requestData, {
@@ -50,20 +54,35 @@ class PersonList extends React.Component {
     const { responseData, error } = this.state;
 
     return (
+      // <div>
+      //   {responseData && (
+      //     <div>
+      //       <h2>Response Data:</h2>
+      //       <pre>{JSON.stringify(responseData, null, 2)}</pre>
+      //     </div>
+      //   )}
+      //   {error && (
+      //     <div>
+      //       <h2>Error:</h2>
+      //       <pre>{JSON.stringify(error, null, 2)}</pre>
+      //     </div>
+      //   )}
+      // </div>
+    <Box p={5}>
+      <Button onClick={responseData}>Get Data from API</Button>
       <div>
-        {/* {responseData && (
+        {responseData && (
           <div>
-            <h2>Response Data:</h2>
             <pre>{JSON.stringify(responseData, null, 2)}</pre>
           </div>
         )}
         {error && (
           <div>
-            <h2>Error:</h2>
             <pre>{JSON.stringify(error, null, 2)}</pre>
           </div>
-        )} */}
+        )}
       </div>
+    </Box>
     );
   }
 }
